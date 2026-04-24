@@ -1,0 +1,55 @@
+<section class="editor-shell card hero-card">
+  <div class="editor-header">
+    <div>
+      <p class="eyebrow">Article editor</p>
+      <h1 class="section-title">{{ title() }}</h1>
+      <p class="surface-copy">
+        Build a draft, update an existing story, and keep ownership tied to your own account.
+      </p>
+    </div>
+
+    <a class="secondary-button" routerLink="/articles">Back to articles</a>
+  </div>
+
+  @if (isLoading()) {
+    <div class="card state-card">
+      <app-loader label="Loading article..."></app-loader>
+    </div>
+  } @else if (errorMessage()) {
+    <div class="card state-card feedback error" role="alert">
+      {{ errorMessage() }}
+    </div>
+  } @else {
+    <form class="editor-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      @if (errorMessage()) {
+        <p class="feedback error" role="alert">{{ errorMessage() }}</p>
+      }
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="title">Title</label>
+          <input id="title" type="text" formControlName="title" />
+          @if (controlError('title')) {
+            <p class="field-error">{{ controlError('title') }}</p>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="content">Content</label>
+          <textarea id="content" formControlName="content"></textarea>
+          @if (controlError('content')) {
+            <p class="field-error">{{ controlError('content') }}</p>
+          }
+        </div>
+      </div>
+
+      <button class="primary-button" type="submit" [disabled]="isSubmitting()">
+        @if (isSubmitting()) {
+          Saving...
+        } @else {
+          Save article
+        }
+      </button>
+    </form>
+  }
+</section>

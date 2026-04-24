@@ -1,0 +1,58 @@
+<section class="articles-page">
+  <div class="hero-card card articles-intro">
+    <div>
+      <p class="eyebrow">Public feed</p>
+      <h1 class="section-title">Browse the latest articles</h1>
+      <p class="surface-copy">
+        Visitors can read everything here. Signed-in authors can create, edit, and remove only their own posts.
+      </p>
+    </div>
+
+    @if (currentUser()) {
+      <a class="primary-button" routerLink="/editor">Write article</a>
+    }
+  </div>
+
+  @if (isLoading()) {
+    <div class="card state-card">
+      <app-loader label="Loading articles..."></app-loader>
+    </div>
+  } @else if (errorMessage()) {
+    <div class="card state-card feedback error" role="alert">
+      {{ errorMessage() }}
+    </div>
+  } @else if (articles().length === 0) {
+    <div class="card state-card empty-state">
+      <h2 class="section-title">No articles found</h2>
+      <p class="surface-copy">Create the first post to fill the feed.</p>
+    </div>
+  } @else {
+    <div class="articles-grid">
+      @for (article of articles(); track article.id) {
+        <article class="card article-card">
+          <div class="article-header">
+            <div>
+              <p class="eyebrow">{{ article.authorName }}</p>
+              <h2>{{ article.title }}</h2>
+            </div>
+
+            <time class="article-date" [attr.datetime]="article.updatedAt">
+              {{ article.updatedAt | date: 'mediumDate' }}
+            </time>
+          </div>
+
+          <p class="article-content">{{ article.content }}</p>
+
+          @if (canEdit(article)) {
+            <div class="article-actions">
+              <a class="secondary-button" [routerLink]="['/editor', article.id]">Edit</a>
+              <button class="secondary-button danger-button" type="button" (click)="deleteArticle(article)">
+                Delete
+              </button>
+            </div>
+          }
+        </article>
+      }
+    </div>
+  }
+</section>

@@ -1,0 +1,228 @@
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	color-scheme: light;
+	--page-bg: #f2f2f2;
+	--surface: #ffffff;
+	--surface-strong: #111111;
+	--surface-soft: #ececec;
+	--text: #111111;
+	--muted: #4f4f4f;
+	--line: #111111;
+	--accent: #d40000;
+	--accent-2: #ff2b2b;
+	--danger: #d40000;
+	--danger-soft: #ffe6e6;
+	--success: #111111;
+	--shadow: 10px 10px 0 #111111;
+}
+
+html {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: Impact, Haettenschweiler, "Arial Black", "Segoe UI", sans-serif;
+	color: var(--text);
+	background:
+		repeating-linear-gradient(45deg, #f6f6f6 0 12px, #ededed 12px 24px),
+		linear-gradient(180deg, #ffffff 0%, #efefef 60%, #e5e5e5 100%);
+}
+
+a {
+	color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+}
+
+button {
+	border: 0;
+}
+
+.card {
+	background: var(--surface);
+	border: 3px solid var(--line);
+	border-radius: 0;
+	box-shadow: var(--shadow);
+}
+
+.hero-card {
+	background:
+		linear-gradient(135deg, rgba(212, 0, 0, 0.08), rgba(255, 255, 255, 0.92)),
+		var(--surface);
+}
+
+.section-title {
+	margin: 0;
+	font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.eyebrow {
+	margin: 0 0 0.45rem;
+	text-transform: uppercase;
+	letter-spacing: 0.22em;
+	font-size: 0.78rem;
+	color: var(--accent);
+}
+
+.surface-copy {
+	color: var(--muted);
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.form-grid {
+	display: grid;
+	gap: 1rem;
+}
+
+.form-field {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.form-field label {
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.form-field input,
+.form-field textarea {
+	width: 100%;
+	border-radius: 0;
+	border: 3px solid var(--line);
+	background: #fff;
+	padding: 0.95rem 1rem;
+	color: var(--text);
+	transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.form-field textarea {
+	min-height: 13rem;
+	resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+	outline: none;
+	border-color: var(--accent);
+	box-shadow: 5px 5px 0 var(--accent);
+	transform: translate(-1px, -1px);
+}
+
+.field-error {
+	margin: 0;
+	color: var(--danger);
+	font-size: 0.92rem;
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.feedback {
+	border-radius: 0;
+	padding: 0.95rem 1rem;
+	border: 3px solid var(--line);
+}
+
+.feedback.error {
+	color: var(--danger);
+	background: #fff;
+	border-color: var(--danger);
+}
+
+.feedback.success {
+	color: var(--text);
+	background: #fff;
+	border-color: var(--line);
+}
+
+.primary-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.55rem;
+	border-radius: 0;
+	border: 3px solid var(--line);
+	background: var(--accent);
+	color: #fff;
+	padding: 0.9rem 1.2rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	cursor: pointer;
+	transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+	box-shadow: 8px 8px 0 var(--line);
+}
+
+.primary-button:hover:not(:disabled) {
+	transform: translate(-2px, -2px);
+	box-shadow: 10px 10px 0 var(--line);
+}
+
+.primary-button:disabled {
+	cursor: not-allowed;
+	opacity: 0.72;
+	box-shadow: none;
+}
+
+.secondary-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.55rem;
+	border-radius: 0;
+	border: 3px solid var(--line);
+	background: #fff;
+	color: var(--text);
+	padding: 0.82rem 1.15rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	cursor: pointer;
+	box-shadow: 6px 6px 0 var(--line);
+}
+
+.loader-wrap {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.8rem;
+	color: var(--muted);
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.loader-spin {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0;
+	border: 3px solid var(--line);
+	border-top-color: var(--accent);
+	animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (max-width: 640px) {
+	.primary-button,
+	.secondary-button {
+		width: 100%;
+	}
+
+	.form-field input,
+	.form-field textarea {
+		padding: 0.9rem;
+	}
+}

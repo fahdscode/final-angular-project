@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": "user-seed-1",
+      "name": "Editorial Team",
+      "email": "editor@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "1777061690151-ov3n07zu",
+      "name": "Fahd",
+      "email": "fahdgamad080@gmail.com",
+      "password": "Plotwist@2002"
+    }
+  ],
+  "articles": [
+    {
+      "id": "seed-1",
+      "title": "Designing a Blog That Feels Fast",
+      "content": "A thoughtful blog starts with clear structure, low-friction editing, and visible feedback for every network state. This starter article shows how small UI details change the whole experience.",
+      "authorId": "user-seed-1",
+      "authorName": "Editorial Team",
+      "createdAt": "2026-04-01T10:00:00.000Z",
+      "updatedAt": "2026-04-01T10:00:00.000Z"
+    },
+    {
+      "id": "seed-2",
+      "title": "Why Ownership Matters in Content Tools",
+      "content": "When authors can only edit their own work, the application stays predictable and safe. The article list still stays public, but changes remain scoped to the current account.",
+      "authorId": "user-seed-1",
+      "authorName": "Editorial Team",
+      "createdAt": "2026-04-06T15:30:00.000Z",
+      "updatedAt": "2026-04-06T15:30:00.000Z"
+    },
+    {
+      "id": "1777061765536-7g6gvexe",
+      "title": "The Project",
+      "content": "Angular Blog Project – Requirements\n\n- Project Overview\n\nYou are required to build a Blog Application using Angular with API integration using JSON\nServer or any APIs.\n- The application must support\nUser authentication\nArticle management (CRUD)\nRoute protection\nProper UI states (loading, error, empty)\n\n- Required Pages\n\nYour application must include the following routes:\n* `/login\n`\n* `/register\n`\n* `/articles\n`\n* `/editor\n` (Create / Edit Article)\n\n- Authentication Requirements\n\nUsers must be able to:\n* Register\n* Login\n* Logout\n\nAuthentication must be handled using API calls\n\nStore logged-in user in:\n\n`localStorage\n`\n- Article Requirements\n- Authenticated Users\n* Create articles\n* Edit their own articles only\n* Delete their own articles only\n- Non-Authenticated Users\n* Can only view articles\n- Route Protection\n\nYou must implement a Guard to:\n\n* Prevent non-authenticated users from accessing:\n* `/editor\n`\n- Architecture Requirements\n* Use **Module-Based Architecture**\n* Use **Services** for all business logic and API calls\n* Use **Guards** for route protection\n- Error Handling (Mandatory)\nYour application must handle:\n* Invalid login\n* Failed API requests\n* Invalid form submissions\nUser-friendly error messages must be displayed.\n- UI States (Mandatory)\nYou must implement the following states:\n### Loading State\n* Show a loader while waiting for API response\n### Empty State\n* Display message when no data is available\nExample: “No articles found”\n### Error State\n* Display meaningful error messages\n---\n## Forms & Validation\n* Use **Reactive Forms**\n* Apply validation:\n* Required fields\n* Minimum length (title, content)",
+      "authorId": "1777061690151-ov3n07zu",
+      "authorName": "Fahd",
+      "createdAt": "2026-04-24T20:16:05.536Z",
+      "updatedAt": "2026-04-24T20:16:05.536Z"
+    }
+  ]
+}

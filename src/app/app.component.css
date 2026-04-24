@@ -1,0 +1,110 @@
+ :host {
+	display: block;
+	min-height: 100vh;
+}
+
+.shell {
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+
+.topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem 1.25rem;
+	background: #111111;
+	border-bottom: 3px solid #d40000;
+	color: #ffffff;
+}
+
+.brand {
+	color: inherit;
+	text-decoration: none;
+	font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+	font-size: 1.65rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+
+.nav a,
+.ghost-button {
+	color: inherit;
+	text-decoration: none;
+	border-radius: 0;
+	border: 3px solid #ffffff;
+	padding: 0.62rem 0.9rem;
+	transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-weight: 800;
+}
+
+.nav a:hover,
+.ghost-button:hover {
+	transform: translate(-1px, -1px);
+	background: #d40000;
+	border-color: #d40000;
+}
+
+.nav a.active {
+	background: #d40000;
+	border-color: #d40000;
+}
+
+.ghost-button {
+	background: transparent;
+	font: inherit;
+	cursor: pointer;
+}
+
+.account-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	padding: 0.55rem 0.8rem;
+	border-radius: 0;
+	background: #ffffff;
+	color: #111111;
+	white-space: nowrap;
+	border: 3px solid #111111;
+	box-shadow: 6px 6px 0 #d40000;
+}
+
+.dot {
+	width: 0.7rem;
+	height: 0.7rem;
+	border-radius: 0;
+	background: #d40000;
+}
+
+.page-frame {
+	padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 860px) {
+	.topbar {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.nav {
+		width: 100%;
+	}
+
+	.nav a,
+	.ghost-button,
+	.account-chip {
+		width: 100%;
+		justify-content: center;
+	}
+}

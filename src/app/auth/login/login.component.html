@@ -1,0 +1,45 @@
+<section class="auth-shell card hero-card">
+  <div class="auth-copy">
+    <p class="eyebrow">Welcome back</p>
+    <h1 class="section-title">Log in to manage your articles</h1>
+    <p class="surface-copy">
+      Pick up where you left off, edit your drafts, and keep your content under your own account.
+    </p>
+  </div>
+
+  <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    @if (errorMessage()) {
+      <p class="feedback error" role="alert">{{ errorMessage() }}</p>
+    }
+
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" autocomplete="email" />
+        @if (controlError('email')) {
+          <p class="field-error">{{ controlError('email') }}</p>
+        }
+      </div>
+
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" autocomplete="current-password" />
+        @if (controlError('password')) {
+          <p class="field-error">{{ controlError('password') }}</p>
+        }
+      </div>
+    </div>
+
+    <button class="primary-button" type="submit" [disabled]="isLoading()">
+      @if (isLoading()) {
+        Logging in...
+      } @else {
+        Login
+      }
+    </button>
+
+    <p class="auth-footnote">
+      New here? <a routerLink="/register">Create your account</a>
+    </p>
+  </form>
+</section>
